@@ -9,6 +9,7 @@ module.exports = {
     // '@vue/eslint-config-typescript'
     '@vue/eslint-config-airbnb-with-typescript',
     'plugin:prettier/recommended',
+    './.eslintrc-auto-import.json',
   ],
   rules: {
     'prettier/prettier': ['error', { singleQuote: true }],
