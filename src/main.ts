@@ -2,6 +2,7 @@ import './assets/main.css';
 
 import { createApp } from 'vue';
 import { createPinia } from 'pinia';
+import 'virtual:uno.css';
 import i18n from '@/i18n/index';
 
 import App from './App.vue';

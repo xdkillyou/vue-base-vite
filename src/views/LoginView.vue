@@ -2,7 +2,7 @@
 
 <template>
   <div>
-    <p>登入頁面</p>
+    <p class="text-red text-28px">Login page</p>
     <RouterLink to="/home">Home page</RouterLink>
   </div>
 </template>

@@ -8,7 +8,7 @@ const accountStore = useAccountStore();
 
 <template>
   <div class="about">
-    <h1>This is Home page | {{ t('success') }}</h1>
+    <h1 class="text-blue text-28px">This is Home page | {{ t('success') }}</h1>
     <div class="flex">
       <p>{{ counterStore.count }}</p>
       <br />
