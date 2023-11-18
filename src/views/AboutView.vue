@@ -1,15 +1,29 @@
 <script setup lang="ts">
-import useCounterStore from '@/stores/counter';
+import { useCounterStore, useAccountStore } from '@/stores/other';
 
 const { t } = useI18n();
 const counterStore = useCounterStore();
+const accountStore = useAccountStore();
 </script>
 
 <template>
   <div class="about">
     <h1>This is an about page | {{ t('success') }}</h1>
-    <p>{{ counterStore.count }}</p>
-    <button @click="counterStore.increment()" type="button">add</button>
+    <div class="flex">
+      <p>{{ counterStore.count }}</p>
+      <br />
+      <button
+        @click="counterStore.increment()"
+        type="button"
+        style="margin-left: 15px"
+      >
+        add
+      </button>
+    </div>
+    <label>
+      Account :
+      <input type="text" v-model="accountStore.account" />
+    </label>
   </div>
 </template>
 
@@ -21,5 +35,10 @@ const counterStore = useCounterStore();
     flex-direction: column;
     justify-content: center;
   }
+
+  .flex {
+    display: flex;
+  }
 }
 </style>
+@/stores/other
