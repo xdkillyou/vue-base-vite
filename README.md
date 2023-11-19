@@ -1,46 +1,88 @@
 # vue-base-vite
 
-This template should help get you started developing with Vue 3 in Vite.
+建立一個Vue基本架構與基礎設定，提供快速建置專案
 
-## Recommended IDE Setup
+## 使用到的套件
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+1. Vue3
+2. Vite
+3. TypeScript
+4. Vue-Router
+5. Pinia
+6. Vue-I18n
+7. Eslint(Airbnb)
+8. Prettier
+9. Vueuse
+10. Unplugin-auto-import
 
-## Type Support for `.vue` Imports in TS
+## 紀錄過程上遇到的問題
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
+### Git push出現身份認證錯誤
 
-If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
+1. 查看git config設定是否有誤
 
-1. Disable the built-in TypeScript Extension
-    1) Run `Extensions: Show Built-in Extensions` from VSCode's command palette
-    2) Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
-2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
+   ##### 查看git config設定
 
-## Customize configuration
+   ```sh
+   git config --list
+   ```
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+   ##### 確定Mail與github(或其他平台)的一致
 
-## Project Setup
+   ```sh
+   git config --global user.name "Your Name"
+   git config --global user.email mail@example.com
+   ```
 
-```sh
-npm install
-```
+   [參考１](https://git-scm.com/book/zh-tw/v2/%E9%96%8B%E5%A7%8B-%E5%88%9D%E6%AC%A1%E8%A8%AD%E5%AE%9A-Git)
 
-### Compile and Hot-Reload for Development
+2. Github規範修改 => 需要設定Personal Access Token
 
-```sh
-npm run dev
-```
+   ##### Personal Access Token
 
-### Type-Check, Compile and Minify for Production
+   Follow以下參考至github -> settings -> developer settings -> Personal Access Token -> Token(Classic) -> 選擇權限(未深入研究) -> Generate token
 
-```sh
-npm run build
-```
+   ```sh
+   git config --global user.password "Token"
+   ```
 
-### Lint with [ESLint](https://eslint.org/)
+   [參考１](https://shengyu7697.github.io/github-personal-access-token/)
 
-```sh
-npm run lint
-```
+### Unplugin-auto-import TS Error
+
+1.  按照官方網站提示設定
+
+    Follow 官網的設定教學後，當我刪掉Import { ref } from 'vue'後，Ts提示錯誤
+
+    [官網下載教學](https://github.com/unplugin/unplugin-auto-import/tree/main)
+
+    ```ts
+    // vite.config.ts
+
+    import AutoImport from 'unplugin-auto-import/vite';
+
+    export default defineConfig({
+      plugins: [
+        AutoImport({
+          /* options */
+        }),
+      ],
+    });
+    ```
+
+2.  針對AutoImport({ option })設定
+
+    [參考１](https://github.com/unplugin/unplugin-auto-import/tree/main#typescript)、[參考２](https://blog.csdn.net/Web_chicken/article/details/130943350)
+
+    要特別注意的是，要執行(npm run dev)才會build出文件
+
+### Git tag
+
+1. 新增git tag卻發現remote沒有tag
+   [參考１](https://git-scm.com/book/zh-tw/v2/Git-%E5%9F%BA%E7%A4%8E-%E6%A8%99%E7%B1%A4)
+
+### normalize.css & reset.css
+
+#### normalize.css：保留部分基礎樣式，並將不同瀏覽的的基礎樣式統一
+
+#### reset.css：極端的重置全部所有的樣式，適合高度客製化的畫面來使用
