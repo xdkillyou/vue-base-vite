@@ -14,6 +14,9 @@ dist-ssr
 coverage
 *.local
 
+# 實際開發應用場景不應該將env丟上git
+# .env.* 
+
 /cypress/videos/
 /cypress/screenshots/
 
