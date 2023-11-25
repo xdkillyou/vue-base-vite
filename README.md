@@ -14,6 +14,7 @@
 8. Prettier
 9. Vueuse
 10. Unplugin-auto-import
+11. Axios
 
 ## 紀錄過程上遇到的問題
 
@@ -83,6 +84,5 @@
 
 ### normalize.css & reset.css
 
-#### normalize.css：保留部分基礎樣式，並將不同瀏覽的的基礎樣式統一
-
-#### reset.css：極端的重置全部所有的樣式，適合高度客製化的畫面來使用
+1. normalize.css：保留部分基礎樣式，並將不同瀏覽的的基礎樣式統一
+2. reset.css：極端的重置全部所有的樣式，適合高度客製化的畫面來使用
